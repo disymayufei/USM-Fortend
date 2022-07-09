@@ -1,0 +1,122 @@
+*{
+    margin: 0;
+    padding: 0;
+}
+
+body{
+    height: 100vh;
+    display: flex;
+
+    background: linear-gradient(205deg, #eed4d9, #c5e5fa);
+    align-items: center;
+}
+
+.shell{
+    width: 6%;
+    min-width: 45px;
+    max-width: 70px;
+    height: 100%;
+    display: flex;
+    justify-content: left;
+    align-items: center;
+    flex-direction: column;
+    background: rgba(0, 0, 0, 0.5);
+    transition: 0.3s ease-in-out;
+    overflow: hidden;
+}
+
+.shell:hover{
+    width: 20%;
+    min-width: 200px;
+    max-width: 250px;
+}
+
+.shell:hover span{
+    opacity: 1;
+}
+
+.box{
+    display: flex;
+    height: 8%;
+    max-height: 50px;
+    width: 85%;
+    margin: 9px;
+    border-radius: 5px;
+    position: relative;
+    transition: 0.3s;
+    color: rgb(205, 205, 225);
+    text-decoration: none;
+    flex-direction: column;
+    align-items: center;
+}
+
+.shell:hover .box{
+    flex-direction: unset;
+}
+
+.shell:hover .box span{
+    transition: 0.3s ease-in;
+}
+
+.shell:hover .logo-box img{
+    display: none;
+}
+
+.box img{
+    width: 40px;
+    height: 40px;
+    transition: 0.3s ease-out;
+}
+
+.box:hover{
+    background-color: rgb(46, 50, 58);
+    color: #FFF;
+    transition: 0.2s ease-in-out;
+}
+
+.box:hover img{
+    margin-left: 10px;
+}
+
+.box:nth-child(1)::before,
+.box:nth-child(5)::before{
+    content: '';
+    display: block;
+    width: 100%;
+    height: 2px;
+    background-color: rgb(55, 65, 81);
+    position: absolute;
+    bottom: -10px;
+}
+
+.box span{
+    position: relative;
+    left: 20px;
+    opacity: 0;
+    font-size: 18px;
+}
+
+.logo-box{
+    align-items: center;
+    cursor: default;
+    display: flex;
+    justify-content: center;
+}
+
+.logo-box span{
+    display: flex;
+    position: relative;
+    font-size: 24px;
+    top: 0;
+    left: 0;
+    justify-content: center;
+}
+
+.logo-box img{
+    position: relative;
+    top: 30px
+}
+
+.logo-box:hover{
+    background-color: rgba(0, 0, 0, 0);
+}
