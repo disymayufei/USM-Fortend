@@ -6,11 +6,134 @@
 body{
     height: 100vh;
     display: flex;
-
-    background: linear-gradient(205deg, #eed4d9, #c5e5fa);
+    background: linear-gradient(205deg, #eed4d9, #c5e5fa) no-repeat fixed;
     align-items: center;
 }
 
+.noselect{
+    -webkit-user-select:none;
+    -moz-user-select:none;
+    -ms-user-select:none;
+    user-select:none;
+}
+
+.hidden{
+    display: none !important;
+}
+
+
+/* 主容器样式 */
+.main-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    flex-direction: row;
+}
+
+#main-frame-container{
+    height: 100%;
+    width: 100%;
+    display: flex;
+    justify-content: flex-start;
+    flex-direction: column;
+    align-items: center;
+}
+
+.main-box{
+    width: 100%;
+    height: 100%;
+    overflow: visible;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-direction: column;
+}
+
+@font-face {
+    font-family: 新黑体;
+    src: url("../font/SLFont.ttf");
+}
+
+@media screen and (max-width: 600px){
+    .only-large{
+        display: none;
+    }
+}
+
+/* 导航栏样式 */
+.navigation-bar{
+    width: 60%;
+    max-width: 800px;
+    min-width: 500px;
+    height: 60px;
+    line-height: 60px;
+    background-color: rgba(250, 250, 255, 0.9);
+    box-shadow: 0 5px 15px rgba(0, 0, 0, 0.25);
+    margin-bottom: 30px;
+    border-radius: 50px;
+    overflow: hidden;
+    transition: all 0.3s ease-in;
+}
+
+.navigation-bar nav{
+    display: flex;
+    position: relative;
+}
+
+.navigation-bar nav label{
+    flex: 1;
+    width: 100%;
+    position: relative;
+    z-index: 1;
+    cursor: pointer;
+}
+
+.navigation-bar nav label a{
+    position: relative;
+    z-index: -1;
+    color: #333;
+    font-size: 18px;
+    font-weight: 500;
+    text-decoration: none;
+}
+
+.navigation-bar nav label i{
+    font-size: 30px;
+    margin-left: 10px;
+    margin-right: 20px;
+    position: relative;
+    top: 5px;
+    left: 5px;
+}
+
+@media screen and (max-width: 600px){
+    .navigation-bar{
+        min-width: 200px;
+    }
+
+    .navigation-bar nav label{
+        display: flex;
+        justify-content: center;
+        text-align: center;
+    }
+}
+
+.navigation-bar nav input{
+    display: none;
+}
+
+.navigation-bar nav .tab{
+    position: absolute;
+    height: 100%;
+    width: 34%;
+    left: 0;
+    bottom: 0;
+    background: linear-gradient(60deg, #ffb8d2, #b9e2ff);
+    border-radius: 50px;
+    transition: 0.6s cubic-bezier(0.68, -0.55, 0.265, 1.55);
+}
+
+/* 侧边栏样式 */
 .shell{
     width: 6%;
     min-width: 45px;
@@ -23,6 +146,7 @@ body{
     background: rgba(0, 0, 0, 0.5);
     transition: 0.3s ease-in-out;
     overflow: hidden;
+    z-index: 20;
 }
 
 .shell:hover{
@@ -119,4 +243,143 @@ body{
 
 .logo-box:hover{
     background-color: rgba(0, 0, 0, 0);
+}
+
+#logout-btn:hover{
+    background-color: #a91d1d;
+}
+
+/* 显示框样式 */
+.display-frame{
+    width: 90%;
+    height: 70%;
+    background-color: rgba(235, 235, 240, 0.8);
+    border-radius: 30px;
+    box-shadow: 6px 6px 8px #999, -6px -6px 8px #eee;
+    display: flex;
+    padding-top: 30px;
+    justify-content: center;
+    align-items: center;
+    font-family: 新黑体, serif;
+    font-weight: lighter;
+}
+
+.display-frame p{
+    font-size: 20px;
+}
+
+.about-box{
+    width: 95%;
+    height: 100%;
+    display: flex;
+}
+
+/* 搜索栏样式 */
+.search{
+    position: relative;
+    top: -20px;
+    margin-bottom: 20px;
+}
+
+.search-input{
+    color: #EAEEF0;
+    padding: 10px;
+    width: 50px;
+    height: 50px;
+    background: none;
+    border: 4px solid #000;
+    border-radius: 10px;
+    box-sizing: border-box;
+    font: 400 26px "Comic Sans MS";
+    outline: none;
+    transition: 0.5s ease;
+}
+
+#checkbox{
+    display: none;
+}
+
+[for=checkbox]{
+    display: block;
+    width: 40px;
+    height: 40px;
+    border-radius: 20px;
+    position: absolute;
+    right: 0;
+    margin: 5px 4px 5px 6px;
+    transition: 0.4s ease;
+    background-image: url("../img/svg/Search.svg");
+    background-size:cover;
+    background-repeat: no-repeat;
+}
+
+#checkbox:checked~label{
+    border-radius: 10px;
+    background-image: url("../img/svg/Close.svg");
+    margin: 0 -5px;
+    border: 4px solid #000;
+}
+
+#checkbox:checked~input{
+    width: 400px;
+    border-radius: 10px;
+    margin-right: 60px;
+    background-color: #272133;
+    font: 400 16px "Comic Sans MS";
+    color: #EAEEF0;
+}
+
+.fonts{
+    position: absolute;
+    top: -80px;
+    left: 10px;
+    color: #EAEEF0;
+    letter-spacing: 5px;
+    font: 400 26px "Comic Sans MS";
+    display: flex;
+}
+
+.fonts span{
+    color: #000;
+    transition: 0.3s;
+    opacity: 0;
+}
+
+#checkbox:checked ~.fonts span{
+    transition: calc(var(--i)*0.1s) 0.3s;
+    transform: translateY(40px);
+    opacity: 1;
+}
+
+@media screen and (max-width: 600px){
+    .search-input{
+        width: 35px;
+        height: 35px;
+    }
+
+    [for=checkbox]{
+        width: 25px;
+        height: 25px;
+    }
+    #checkbox:checked~input{
+        width: 200px;
+        margin-right: 40px;
+    }
+
+    .fonts{
+        top: -40px;
+        font: 400 18px "Comic Sans MS";
+    }
+
+    #checkbox:checked ~.fonts span{
+        transform: translateY(15px);
+    }
+
+}
+
+@media screen and (min-width: 1300px){
+    #checkbox:checked~input{
+        width: 1000px;
+        margin-right: 60px;
+    }
 }

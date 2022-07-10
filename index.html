@@ -1,4 +1,5 @@
 <!DOCTYPE html>
+<!--suppress HtmlFormInputWithoutLabel -->
 <html lang="zh">
 <head>
     <meta charset="UTF-8">
@@ -6,18 +7,78 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="./css/main-style.css">
+    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
     <title>StarLight - DSM</title>
+
+    <script type="text/javascript" src="./js/main.js"></script>
 </head>
 
 <body>
-    <div class="shell">
-        <a href="#" class="box logo-box"><i><img src="./img/svg/List.svg" alt="List"></i><span style="color: #ffea00">Star</span><span style="color: aqua">Light</span></a>
-        <a href="#" class="box"><i><img src="./img/svg/Home.svg" alt="Home"></i><span>首页</span></a>
-        <a href="#" class="box"><i><img src="./img/svg/Server.svg" alt="Server"></i><span>服务器</span></a>
-        <a href="#" class="box"><i><img src="./img/svg/Files.svg" alt="Files"></i><span>文件管理</span></a>
-        <a href="#" class="box"><i><img src="./img/svg/User.svg" alt="User"></i><span>用户</span></a>
-        <a href="#" class="box"><i><img src="./img/svg/About.svg" alt="About"></i><span>关于</span></a>
-        <a href="#" class="box"><i><img src="./img/svg/Logout.svg" alt="Logout"></i><span>登出</span></a>
+    <div class="main-container">
+        <div class="shell">
+            <a href="#" class="box logo-box"><i><img src="./img/svg/List.svg" alt="List"></i><span style="color: #ffea00">Star</span><span style="color: aqua">Light</span></a>
+            <a href="#" class="box" id="home-btn"><i><img src="./img/svg/Home.svg" alt="Home"></i><span>首页</span></a>
+            <a href="#" class="box" id="server-btn"><i><img src="./img/svg/Server.svg" alt="Server"></i><span>服务器</span></a>
+            <a href="#" class="box" id="files-btn"><i><img src="./img/svg/Files.svg" alt="Files"></i><span>文件管理</span></a>
+            <a href="#" class="box" id="user-btn"><i><img src="./img/svg/User.svg" alt="User"></i><span>用户</span></a>
+            <a href="#" class="box" id="about-btn"><i><img src="./img/svg/About.svg" alt="About"></i><span>关于</span></a>
+            <a href="#" class="box" id="logout-btn"><i><img src="./img/svg/Logout.svg" alt="Logout"></i><span>登出</span></a>
+        </div>
+
+        <div class="main-box">
+            <div class="navigation-bar noselect" id="home-navigation-bar">
+                <nav>
+                    <label for="personal-data" class="personal-data top-btn">
+                        <a href="#">
+                            <i class="fa fa-user" aria-hidden="true"></i>
+                           <span class="only-large">个人信息</span>
+                        </a>
+                    </label>
+
+                    <label for="server-monitor" class="server-monitor top-btn">
+                        <a href="#">
+                            <i class="fa fa-server" aria-hidden="true"></i>
+                            <span class="only-large">服务器总览</span>
+                        </a>
+                    </label>
+
+                    <label for="server-status-monitor" class="server-status-monitor top-btn">
+                        <a href="#">
+                            <i class="fa fa-tachometer" aria-hidden="true" style="top: 3px"></i>
+                            <span class="only-large">服务器状态</span>
+                        </a>
+                    </label>
+
+                    <div class="tab" id="top-tab"></div>
+                </nav>
+            </div>
+
+            <div class="search" id="search-container" style="display: none">
+                <input type="checkbox" id="checkbox">
+                <label for="checkbox" id="search-btn"></label>
+                <input type="text" class="search-input" id="search-input">
+                <div class="fonts noselect">
+                    <span style="--i:1">S</span>
+                    <span style="--i:2">e</span>
+                    <span style="--i:3">a</span>
+                    <span style="--i:4">r</span>
+                    <span style="--i:5">c</span>
+                    <span style="--i:6">h</span>
+                    <span style="--i:7">.</span>
+                    <span style="--i:8">.</span>
+                    <span style="--i:9">.</span>
+                    <span style="--i:10">.</span>
+                    <span style="--i:11">.</span>
+                    <span style="--i:12">.</span>
+                </div>
+            </div>
+
+            <div class="display-frame" id="main-frame">
+                <div id="main-frame-container">
+
+                </div>
+            </div>
+        </div>
     </div>
 </body>
 </html>
