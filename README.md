@@ -43,7 +43,7 @@
         - **header：error**
         - args：
           - 类型：map
-          - 基本格式：{"code": error-code, "reason": error-reason}
+          - 基本格式：{ "code": error-code, "reason": error-reason }
           - 基本格式释义：
             - code：错误码，为int类型，可为以下值：
               - 100：上传的文件SHA-1值校验失败
@@ -54,3 +54,17 @@
               - 500：包格式错误
               - 501：服务器自身发生意外的错误
               - 502：服务器正在关闭
+            - reason：错误原因，为String类型（不会为null），详细描述错误的具体内容
+            
+    - ### 1.1.3 登录握手包
+      - 作用：在**登录**时，进行握手与相关合法性校验工作
+      - header: login
+      - args:
+        - 类型：map
+        - 基本格式：{ "status": login-status, "reason": login-reason, "accessKey": access-key }
+        - 基本格式释义：
+          - status：登录状态，为String类型，可为以下值：
+            - "success"：表明登录成功，无错误发生
+            - "failed"：表明因某些原因登录失败
+          - reason：登录状态发生的原因，为String类型（不会为null），详细描述登录成功或失败的具体原。
+          - accessKey：登录许可密钥，为String类型（登录失败时为null），用于后续所有操作的合法性校验，建议用cookie缓存。
