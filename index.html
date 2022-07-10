@@ -7,10 +7,12 @@
     <meta name="viewport" content="width=device-width, initial-scale=1, maximum-scale=1, user-scalable=no">
 
     <link rel="stylesheet" href="./css/main-style.css">
-    <link href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css" rel="stylesheet">
+    <link rel="stylesheet" href="https://cdn.bootcdn.net/ajax/libs/font-awesome/4.7.0/css/font-awesome.css">
+    <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap">
     <title>StarLight - DSM</title>
 
     <script type="text/javascript" src="./js/main.js"></script>
+    <script src="https://cdn.bootcdn.net/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.babel.min.js"></script>
 </head>
 
 <body>
@@ -26,6 +28,7 @@
         </div>
 
         <div class="main-box">
+            <!-- 顶端导航栏，用于主界面切换不同显示页面 -->
             <div class="navigation-bar noselect" id="home-navigation-bar">
                 <nav>
                     <label for="personal-data" class="personal-data top-btn">
@@ -53,6 +56,7 @@
                 </nav>
             </div>
 
+            <!-- 顶端搜索栏，用于查询服务器 -->
             <div class="search" id="search-container" style="display: none">
                 <input type="checkbox" id="checkbox">
                 <label for="checkbox" id="search-btn"></label>
@@ -73,7 +77,39 @@
                 </div>
             </div>
 
-            <div class="display-frame" id="main-frame">
+            <!-- 服务端显示栏，用于展示不同的子服务端 -->
+            <div class="server-container" id="server-cards-container">
+                <div class="card">
+                    <div class="card-content">
+                        <h3>MC服务器</h3>
+                        <div class="card-text">
+                            <p>包含所有的Minecraft服务器</p>
+                            <a href="#">查看</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Java项目</h3>
+                        <div class="card-text">
+                            <p>个人的Java小项目!</p>
+                            <a href="#">查看</a>
+                        </div>
+                    </div>
+                </div>
+                <div class="card">
+                    <div class="card-content">
+                        <h3>Python项目</h3>
+                        <div class="card-text">
+                            <p>还在测试的小项目</p>
+                            <a href="#">查看</a>
+                        </div>
+                    </div>
+                </div>
+            </div>
+
+            <!-- 主显示框，用于展示主体内容 -->
+            <div class="display-frame hidden" id="main-frame">
                 <div id="main-frame-container">
 
                 </div>
