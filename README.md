@@ -77,6 +77,7 @@
       - #### header: login
       - ### 1.2.3.1 登录请求包
         - 来源：C
+        - 作用：客户端请求登录
         - args：
           - 类型：map
           - 基本格式：{ "user": user-account, "pwd": plain-password }
@@ -86,6 +87,7 @@
           - 备注：由于此包包含明文密码，故TLS加密是必要的！
       - ### 1.2.3.2 登录响应包
         - 来源：S
+        - 作用：服务器校验登录请求后，返回相应请求的相关信息
         - args:
           - 类型：map
           - 基本格式：{ "status": login-status, "reason": login-reason, "accessKey": access-key }
@@ -101,6 +103,7 @@
       - header：register
       - ### 1.2.4.1 注册请求包
         - 来源：C
+        - 作用：客户端请求注册
         - args：
           - 类型：map
           - 基本格式：{ "user": user-account, "pwd": plain-password, "code": invitation-code }
@@ -110,6 +113,7 @@
               - code：邀请码，为String类型，记录用户的邀请码值
       - ### 1.2.4.2 注册响应包
         - 来源：S
+        - 作用：服务器校验注册请求后，返回相应请求的相关信息
         - args：
           - 类型：map
           - 基本格式：{ "status": register-status, "reason": register-reason, "accessKey": access-key }
@@ -120,3 +124,12 @@
               - reason：注册状态发生的原因，为String类型（不会为null），详细描述登录成功或失败的具体原因。
               - accessKey：登录许可密钥，为String类型（注册失败时为null），用于后续所有操作的合法性校验，建议用cookie缓存。
           - 备注：注册成功时，后端会同时帮该用户登录，表现为返回accessKey，因此该accessKey作用等同于登录包中的accessKey
+  
+    - ### 1.2.5 子服务器展示包
+      - 来源：S
+      - 作用：告知客户端子服务器的所属分类和基本信息，以使前端正确渲染
+      - ### 1.2.5.1 总览信息包
+        - 作用：展示服务器的分类信息和描述，用于渲染总览界面
+        - args：
+          - 类型：map
+          - 基本格式：{ "class": server-class, "title": server-title, "description": server-description }
