@@ -1,0 +1,2 @@
+// “关于”界面默认文字
+const default_about_us = "<h1>关于我们</h1><br><h4>（DSM：by StarLight 2014-2022 - All Right Reserved）</h4><br><h3 id='default-about'>暂时没什么可显示的哦！也许你可以稍等一下...</h3><div class='about-box'><p>&nbsp;&nbsp;&nbsp;&nbsp;</p></div>"

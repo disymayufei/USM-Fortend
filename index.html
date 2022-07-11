@@ -11,7 +11,10 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap">
     <title>StarLight - DSM</title>
 
+    <script type="text/javascript" src="./js/animation/fade.js"></script>
+    <script type="text/javascript" src="./js/const/const.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
+
     <script src="https://cdn.bootcdn.net/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.babel.min.js"></script>
 </head>
 
@@ -31,21 +34,21 @@
             <!-- 顶端导航栏，用于主界面切换不同显示页面 -->
             <div class="navigation-bar noselect" id="home-navigation-bar">
                 <nav>
-                    <label for="personal-data" class="personal-data top-btn">
+                    <label class="personal-data top-btn">
                         <a href="#">
                             <i class="fa fa-user" aria-hidden="true"></i>
                            <span class="only-large">个人信息</span>
                         </a>
                     </label>
 
-                    <label for="server-monitor" class="server-monitor top-btn">
+                    <label class="server-monitor top-btn">
                         <a href="#">
                             <i class="fa fa-server" aria-hidden="true"></i>
                             <span class="only-large">服务器总览</span>
                         </a>
                     </label>
 
-                    <label for="server-status-monitor" class="server-status-monitor top-btn">
+                    <label class="server-status-monitor top-btn">
                         <a href="#">
                             <i class="fa fa-tachometer" aria-hidden="true" style="top: 3px"></i>
                             <span class="only-large">服务器状态</span>

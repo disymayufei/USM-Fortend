@@ -129,6 +129,7 @@
     - ### 1.2.5 子服务器展示包
       
       - 作用：用于查询该用户下的子服务器，以使前端正确渲染
+      - header: display
       - ### 1.2.5.1 请求展示包
         - 来源：C
         - 作用：请求子服务器信息
@@ -147,8 +148,19 @@
         - 作用：展示服务器的分类信息和描述，用于渲染总览界面
         - args：
           - 类型：map
-          - 基本格式：{ "class": server-class, "title": server-title, "description": server-description }
+          - 基本格式：{ "type": "server", "class": server-class, "title": server-title, "description": server-description }
           - 基本格式释义：
+            - type：查询类型，为String类型，**值恒为"server"**
             - class：类别，为String类型，表明该子服务器所属的类
             - title：主标题，为String类型，表明该子服务器的标题
             - description：描述，为String类型，表明该子服务器的描述内容
+      - ### 1.2.5.3 类别信息包
+        - 来源：S
+        - 作用：展示用户下的所有分类信息，用于渲染总览界面
+        - args：
+          - 类型：map
+          - 基本格式：{ "type": "class", "name": class-name, "description": class-description }
+          - 基本格式释义：
+            - type：查询类型，为String类型，**值恒为"class"**
+            - name：类别名，为String类型，表明该类的类名
+            - description：描述，为String类型，表明该类的描述内容
