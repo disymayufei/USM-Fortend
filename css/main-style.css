@@ -456,4 +456,10 @@ body{
     border-radius: 20px;
     font-weight: 500;
     box-shadow: 0 5px 15px rgba(0, 0, 0, 0.2);
+    cursor: pointer;
+    transition: box-shadow 0.3s ease;
+}
+
+.server-container .card .card-content a:hover{
+    box-shadow: 2px 2px 15px #272133;
 }

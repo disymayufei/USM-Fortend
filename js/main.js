@@ -11,13 +11,7 @@ window.onload = function (){
     const main_frame_container = document.getElementById("main-frame-container");
 
 
-    /* 添加卡片的动画效果 */
-    VanillaTilt.init(document.querySelectorAll(".card"), {
-        max: 10,
-        speed: 400,
-        glare: true,
-        "max-glare": 0.5
-    })
+    DSMDisplay.addServerItem("class", "MC服务器", "全部Minecraft服务器", "MC-1");
 
 
     /* 侧边栏按钮逻辑 */
