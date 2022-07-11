@@ -93,7 +93,7 @@
             - status：登录状态，为String类型，可为以下值：
               - "success"：表明登录成功，无错误发生
               - "failed"：表明因某些原因登录失败
-            - reason：登录状态发生的原因，为String类型（不会为null），详细描述登录成功或失败的具体原。
+            - reason：登录状态发生的原因，为String类型（不会为null），详细描述登录成功或失败的具体原因。
             - accessKey：登录许可密钥，为String类型（登录失败时为null），用于后续所有操作的合法性校验，建议用cookie缓存。
     
     - ### 1.2.4 注册握手包
@@ -108,3 +108,15 @@
               - user：用户名，为String类型，记录用户名的明文信息
               - pwd：用户密码，为String类型，记录用户的***明文***密码
               - code：邀请码，为String类型，记录用户的邀请码值
+      - ### 1.2.4.2 注册响应包
+        - 来源：S
+        - args：
+          - 类型：map
+          - 基本格式：{ "status": register-status, "reason": register-reason, "accessKey": access-key }
+          - 基本格式释义：
+              - status：注册状态，为String类型，可为以下值：
+                  - "success"：表明注册成功，无错误发生
+                  - "failed"：表明因某些原因注册失败
+              - reason：注册状态发生的原因，为String类型（不会为null），详细描述登录成功或失败的具体原因。
+              - accessKey：登录许可密钥，为String类型（注册失败时为null），用于后续所有操作的合法性校验，建议用cookie缓存。
+          - 备注：注册成功时，后端会同时帮该用户登录，表现为返回accessKey，因此该accessKey作用等同于登录包中的accessKey
