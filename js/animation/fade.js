@@ -57,5 +57,22 @@ function fadeIn(element, timeout, display_type){
  * @param element DOM元素
  */
 function hide(element){
+    if(!element in HIDE_NODE_CACHE){
+        HIDE_NODE_CACHE[element] = element.style.display;
+    }
     element.style.display = "none";
+}
+
+
+/**
+ * 即刻恢复DOM元素的显示
+ * @param element DOM元素
+ */
+function show(element){
+    if(element in HIDE_NODE_CACHE){
+        element.style.display = HIDE_NODE_CACHE[element];
+    }
+    else {
+        element.style.display = "";
+    }
 }

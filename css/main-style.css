@@ -60,6 +60,40 @@ body{
     }
 }
 
+
+/* 加载栏样式 */
+.loader{
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    position: absolute;
+    top: 50%;
+    z-index: 100;
+}
+
+@keyframes loading-animation {
+    0%{
+        transform: scale(0, 0) translateY(0);
+    }
+    10%{
+        transform: scale(0.5, 0.5);
+    }
+    30%{
+        transform: scale(1, 1) translateY(15px);
+    }
+    100%{
+        transform: scale(1, 1);
+    }
+}
+
+.loader span{
+    font-size: 30px;
+    transition: calc(var(--i)*0.1s) 0.3s;
+    animation: loading-animation 1s infinite;
+    animation-delay: calc(var(--i)*0.1s);
+    animation-direction: alternate;
+}
+
 /* 导航栏样式 */
 .navigation-bar{
     width: 60%;

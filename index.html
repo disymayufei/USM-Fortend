@@ -11,10 +11,13 @@
     <link rel="stylesheet" href="https://fonts.googleapis.com/css?family=Poppins:200,300,400,500,600,700,800,900&display=swap">
     <title>StarLight - DSM</title>
 
+    <script type="text/javascript" src="./js/const/constVar.js"></script>
     <script type="text/javascript" src="./js/animation/fade.js"></script>
     <script type="text/javascript" src="./js/utils/string-plus.js"></script>
-    <script type="text/javascript" src="./js/const/const.js"></script>
+    <script type="text/javascript" src="./js/const/enums.js"></script>
+    <script type="text/javascript" src="./js/global/ui.js"></script>
     <script type="text/javascript" src="./js/api/display/server.js"></script>
+    <script type="text/javascript" src="./js/api/request/client-requests.js"></script>
     <script type="text/javascript" src="./js/main.js"></script>
 
     <script src="https://cdn.bootcdn.net/ajax/libs/vanilla-tilt/1.7.2/vanilla-tilt.babel.min.js"></script>
@@ -87,10 +90,23 @@
             </div>
 
             <!-- 主显示框，用于展示主体内容 -->
-            <div class="display-frame hidden" id="main-frame">
+            <div class="display-frame" id="main-frame">
                 <div id="main-frame-container">
-
                 </div>
+            </div>
+
+            <!-- 加载栏，用于显示加载字样 -->
+            <div class="loader hidden">
+                <span style="--i:1">L</span>
+                <span style="--i:2">o</span>
+                <span style="--i:3">a</span>
+                <span style="--i:4">d</span>
+                <span style="--i:5">i</span>
+                <span style="--i:6">n</span>
+                <span style="--i:7">g</span>
+                <span style="--i:8">.</span>
+                <span style="--i:9">.</span>
+                <span style="--i:10">.</span>
             </div>
         </div>
     </div>

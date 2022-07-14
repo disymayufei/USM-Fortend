@@ -7,6 +7,10 @@ let DSMDisplay = {
      * @param name 服务器或分类的名称
      */
     addServerItem: function(type, title, description, name){
+        if(UI_POSITION !== PagePosition.server){
+            return;  // 仅服务器界面允许添加子服务器展示框
+        }
+
         if(!type instanceof String || !title instanceof String || !description instanceof String || !name instanceof String){
             return;
         }
@@ -14,10 +18,10 @@ let DSMDisplay = {
         let find_type;
 
         if(type === "class"){
-            find_type = "findServerByClass";
+            find_type = "DSMClientRequest.findServerByClass";
         }
         else if(type === "server"){
-            find_type = "checkServer";
+            find_type = "DSMClientRequest.checkServer";
         }
         else {
             return;
@@ -45,6 +49,39 @@ let DSMDisplay = {
                 ele.remove();
             }
         }
+    },
+
+    /**
+     * 清除所有子服务器展示框
+     */
+    clearServerItem: function (){
+        let card_list = document.getElementsByClassName("card");
+        for(let i = 0; i < card_list.length; i++){
+            card_list[i].remove();
+        }
+    },
+
+    /**
+     * 选中子服务器展示框时的动画效果
+     * @param name 服务器或分类的名称
+     */
+    selectItem: function (name){
+        let ele = document.getElementById(name);
+        let ele_parent = ele.parentNode;
+
+        ele_parent.vanillaTilt.destroy();
+
+        document.body.style.overflow = "hidden";
+
+        ele_parent.style.transition = "transform 0.3s ease";
+        ele.style.transition = "opacity 0.5s ease";
+        ele.style.opacity = "0";
+        ele_parent.style.transform = "scale(10, 10)"
+
+        setTimeout(function (){
+            document.body.style.overflow = null;
+            DSMDisplay.clearServerItem();
+        }, 510);
     },
 
     _updateItem: function(element){

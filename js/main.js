@@ -1,5 +1,5 @@
 /* DOM操作相关 */
-window.onload = function (){
+function main(){
 
     /* 基本DOM元素的常量声明 */
     const home_btn = document.getElementById("home-btn");
@@ -8,16 +8,17 @@ window.onload = function (){
 
     const top_navigation_bar = document.getElementById("home-navigation-bar");
     const search_bar = document.getElementById("search-container");
+    const main_frame = document.getElementById("main-frame");
     const main_frame_container = document.getElementById("main-frame-container");
-
-
-    DSMDisplay.addServerItem("class", "MC服务器", "全部Minecraft服务器", "MC-1");
 
 
     /* 侧边栏按钮逻辑 */
 
     // "首页"按钮
     home_btn.addEventListener("click", function (){
+        UI_POSITION = PagePosition.home;
+        DSMDisplay.clearServerItem();
+        show(main_frame);
         fadeOut(main_frame_container, 50);
         hide(search_bar);
         fadeIn(top_navigation_bar, 200);
@@ -25,13 +26,20 @@ window.onload = function (){
 
     // "服务器"按钮
     server_btn.addEventListener("click", function (){
+        UI_POSITION = PagePosition.server;
+        DSMDisplay.clearServerItem();
+        hide(main_frame);
         fadeOut(main_frame_container, 50);
         fadeIn(search_bar, 200);
         hide(top_navigation_bar);
+        DSMDisplay.addServerItem("class", "MC服务器", "全部Minecraft服务器", "MC-1");
     });
 
     // "关于"按钮
     about_btn.addEventListener("click", function (){
+        UI_POSITION = PagePosition.about;
+        DSMDisplay.clearServerItem();
+        show(main_frame);
         fadeIn(main_frame_container, 400, "flex");
         main_frame_container.innerHTML = default_about_us;
         hide(top_navigation_bar);
@@ -59,3 +67,5 @@ window.onload = function (){
        }
     });
 }
+
+window.onload = main;
